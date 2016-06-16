@@ -6,7 +6,9 @@ var Nav = () => {
     <div className="top-bar">
       <div className="top-bar-left">
         <ul className="menu">
-          
+          <li>
+          <img id="butters" src={"https://upload.wikimedia.org/wikipedia/en/0/06/ButtersStotch.png"}/>
+          </li>
           <li className="menu-text">React Timer App</li>
           <li>
             <IndexLink to="/" activeClassName="active-link">Timer</IndexLink>
