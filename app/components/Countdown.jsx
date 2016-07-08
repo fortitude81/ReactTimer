@@ -25,12 +25,20 @@ var Countdown = React.createClass({
       }
     }
   },
+  componentWillUnmount: function() {  //lifesycle method, automatically fired by React right before component gets removed form the DOM (visually removed from browser)
+    console.log('componentDidUnmount');
+    clearInterval(this.timer);  //stop interval
+    this.timer=undefined;  //cleanup variable
+  },
   startTimer: function () {
     this.timer = setInterval(() => {
       var newCount = this.state.count -1;
       this.setState({
         count: newCount >= 0 ? newCount : 0
       });
+      if (newCount === 0) {
+        this.setState({countdownStatus: 'stopped'});  //cancel interval when reaches 0, since sets state = stopped will also show countdown form again, then can pick a new #
+      }
     }, 1000);
   },
   handleSetCountdown: function (seconds) {  //when user submits
