@@ -61,6 +61,7 @@ var Countdown = React.createClass({
     };
     return (  //here define what is should look like in the child then define which function to call on current class when child calls that function 'handleSetCountdown'^
       <div>
+        <h1 className="page-title">Countdown App</h1>
         <Clock totalSeconds={count}/>
         {renderControlArea()}
       </div>
